@@ -1,8 +1,7 @@
 import calendar
 import datetime
 
-output_path1 = "D:\\calendar_test\\nikki1.txt"
-output_path2 = "D:\\calendar_test\\nikki2.txt"
+file_name = ".\\nikki"
 days = ["月", "火", "水", "木", "金", "土", "日"]
 
 
@@ -21,7 +20,7 @@ class MakeCalendars:
                 output += "起床。\n就寝。\n\n"
             output += "↑　" + str(self.dt_now.year) + "年" + str(month) + "月\n"
 
-        with open(output_path1, mode='w', encoding='utf-8') as f:
+        with open(file_name+str(self.dt_now.year)+".txt", mode='w', encoding='utf-8') as f:
             f.write(output)
 
     def chosen_year_calendar(self, the_year: int):
@@ -35,5 +34,5 @@ class MakeCalendars:
                 output += "起床。\n就寝。\n\n"
             output += "↑　" + str(the_year) + "年" + str(month) + "月\n"
 
-        with open(output_path2, mode='w', encoding='utf-8') as f:
+        with open(file_name+str(the_year)+".txt", mode='w', encoding='utf-8') as f:
             f.write(output)
