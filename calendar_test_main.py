@@ -43,11 +43,11 @@ class MakeCalendars:
         for i in reversed(range(12)):
             month = i+1
             firstday, lastday = calendar.monthrange(self.dt_now.year, month)
-            output += "↓  " + months(month-1)+" "+str(self.dt_now.year)+"\n"
+            output += "↓  " + months[month-1]+" "+str(self.dt_now.year)+"\n"
             for d in reversed(range(lastday)):
                 #output += str(self.dt_now.year) + "/" + str(month).zfill(2) + "/" +str(d+1).zfill(2) + " (" + days[(d + firstday) % 7] + ")\n"
-                output += months[month-1]+ " " +str(d+1)" (" + days_english[(d + firstday) % 7] + ")\n"
-            output += "↑  " + months(month-1)+" "str(self.dt_now.year)+"\n"
+                output += months[month-1]+ " "+str(d+1)+" (" + days_english[(d + firstday) % 7] + ")\n"
+            output += "↑  " + months[month-1]+" "+str(self.dt_now.year)+"\n"
 
         with open(file_name+str(self.dt_now.year)+".txt", mode='w', encoding='utf-8') as f:
             f.write(output)
