@@ -51,3 +51,16 @@ class MakeCalendars:
 
         with open(file_name+str(self.dt_now.year)+".txt", mode='w', encoding='utf-8') as f:
             f.write(output)
+
+    def this_year_calendar_simple(self):
+        output = ""
+        for i in reversed(range(12)):
+            month = i+1
+            firstday, lastday = calendar.monthrange(self.dt_now.year, month)
+            output += "↓　" + str(self.dt_now.year) + "年" + str(month) + "月\n"
+            for d in reversed(range(lastday)):
+                output += str(month).zfill(2) + str(d+1).zfill(2)+"\n"
+            output += "↑　" + str(self.dt_now.year) + "年" + str(month) + "月\n"
+
+        with open(file_name+str(self.dt_now.year)+".txt", mode='w', encoding='utf-8') as f:
+            f.write(output)
